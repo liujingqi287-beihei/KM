@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net10.0</TargetFramework>
+		<PackAsTool>true</PackAsTool>
+		<ToolCommandName>kmcodec</ToolCommandName>
+		<EnableDynamicLoading>true</EnableDynamicLoading>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<ServerGarbageCollection>true</ServerGarbageCollection>
+		<ApplicationIcon />
+		<StartupObject />
+		<Version>1.0.4.4</Version>
+		<Platforms>AnyCPU</Platforms>
+		<PackageId>KM.ConsoleDecode</PackageId>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <WarningLevel>4</WarningLevel>
+	  <PlatformTarget>x64</PlatformTarget>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommandDotNet" Version="6.0.5" />
+		<PackageReference Include="Spectre.Console" Version="0.39.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\core\Lab404.Link\Lab404.Link.csproj" />
+		<ProjectReference Include="..\FileCompareModule\FileCompareModule.csproj" />
+		<ProjectReference Include="..\KM.Codec\KM.Codec.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Program.tt">
+			<Generator>TextTemplatingFileGenerator</Generator>
+			<LastGenOutput>Program.cs</LastGenOutput>
+		</None>
+		<None Update="WinDriverBridge.dll">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="libXDMA_Manger_Lib.dll">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Program.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Program.tt</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+</Project>

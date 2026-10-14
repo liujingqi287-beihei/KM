@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BoardTest_Short": {
+      "commandName": "Project",
+      "commandLineArgs": "XDMATest XDMA D:\\测试数据\\KM\\300_Input\\black\\near0 D:\\测试数据\\KM\\300_Output\\black\\near0 D:\\yj\\data\\测试结果 --times 100000 --saveraw"  
+    }
+  }
+}
